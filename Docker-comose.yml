@@ -6,7 +6,7 @@ services:
     build:
       context: .
     command:
-      - python boo.py
+      - python telbot.py
     restart: always
     networks:
       - botnet

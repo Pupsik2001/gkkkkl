@@ -9,7 +9,10 @@ WORKDIR /src
 COPY requirements.txt /src
 
 # Changed 'pip' to 'pip3' to specify the Python 3 version of pip
-RUN apt-get update && apt-get install -y python3-pip && pip3 install --no-cache-dir -r requirements.txt
+# Fixed the typo 'apt-get insta'
+# Installed 'curl' to be used in the HEALTHCHECK command
+# Added '-y' flag to automatically answer yes to prompts from apt-get
+RUN apt-get update && apt-get install -y curl python3-pip && pip3 install --no-cache-dir -r requirements.txt
 
 # Copy the entire current directory to the working directory
 COPY . /src

@@ -20,6 +20,7 @@ COPY . /src
 # Fixed the error where the container was exiting before becoming healthy
 # Added a HEALTHCHECK command to check the health of the container
 # The command checks if port 80 is listening and if it is, returns a 200 (OK) status
+# Fixed the typo in the HEALTHCHECK command where 'curl --fial' should be 'curl --fail'
 HEALTHCHECK CMD curl --fail http://localhost:80 || exit 1
 
 # Expose port 80 to allow external access

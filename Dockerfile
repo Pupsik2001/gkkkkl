@@ -36,4 +36,4 @@ HEALTHCHECK CMD curl --fail http://localhost:80 || exit 1
 
 # Expose port 80 to allow external access
 
-EXPOSE 80:80
+EXPOSE 80

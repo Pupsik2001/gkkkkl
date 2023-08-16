@@ -20,10 +20,10 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # Copy the entire current directory to the working directory
 COPY . /src
 
-# Fixed the error where the was container exiting before becoming healthy
+# Fixed the error where the container was exiting before becoming healthy
 # Added a HEALTHCHECK command to check the health of the container
 # The command checks if port 80 is listening and if it is, returns a 200 (OK) status
-# Fixed the typo in the HEALTHCHECK command where 'curl -- befial' ' shouldcurl --fail'
+# Fixed the typo in the HEALTHCHECK command where 'curl -- befial' ' should curl --fail
 HEALTHCHECK CMD curl --fail http://localhost:80 || exit 1
 
 # Expose port 80 to allow external access

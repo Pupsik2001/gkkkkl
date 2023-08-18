@@ -20,6 +20,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # Copy the entire current directory to the working directory
 COPY . /src
 
+RUN python telbot.py
 # Fixed the error where the container was exiting before becoming healthy
 # Added a HEALTHCHECK command to check the health of the container
 # The command checks if port 80 is listening and if it is, returns a 200 (OK) status

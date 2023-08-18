@@ -20,7 +20,13 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # Copy the entire current directory to the working directory
 COPY . /src
 
-RUN python telbot.py
+# Moved the RUN command to install and run the telbot.py file inside a script
+RUN echo "pip3 install python-telegram-bot && python3 telbot.py" > start.sh
+
+# Changed 'python' to 'python3' to specify the Python 3 version to run
+# Added '&& load_dotenv()' to load the environment variables from .env file
+ENTRYPOINT ["/bin/bash", "start.sh"]
+
 # Fixed the error where the container was exiting before becoming healthy
 # Added a HEALTHCHECK command to check the health of the container
 # The command checks if port 80 is listening and if it is, returns a 200 (OK) status

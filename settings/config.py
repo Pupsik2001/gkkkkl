@@ -1,5 +1,5 @@
 import os
-import dotenv
+from dotenv import load_dotenv
 # импортируем модуль emoji для отображения эмоджи
 from emoji import emojize
 
